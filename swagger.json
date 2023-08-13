@@ -1,0 +1,85 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "express-apollo-graphql",
+    "description": "A simple Express API endpoint",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/health": {
+      "get": {
+        "summary": "Get Root Endpoint",
+        "description": "Returns a status message",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": true,
+                  "message": "ok"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/add": {
+      "post": {
+        "summary": "Add User",
+        "description": "Adds a new user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "role": {
+                    "type": "string"
+                  },
+                  "org": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "id": "2",
+                  "name": "Dinesh",
+                  "role": "Program Manager",
+                  "org": "Admin Team"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    }
+                  },
+                  "example": {
+                    "status": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
